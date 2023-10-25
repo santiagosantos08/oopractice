@@ -1,5 +1,7 @@
 package parcial2022.modelo;
 
+import parcial2022.filtros.Filtro;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -34,5 +36,13 @@ public class Combo extends ElementoAlquilable {
             }
         }
         return max;
+    }
+    @Override
+    public List<ElementoAlquilable> buscar(Filtro f){
+        List<ElementoAlquilable> res= new ArrayList<>();
+        for(ElementoAlquilable x: elementos){
+            res.addAll(x.buscar(f));
+        }
+        return res;
     }
 }
