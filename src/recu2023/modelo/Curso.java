@@ -1,5 +1,6 @@
 package recu2023.modelo;
 
+import recu2023.filtros.Filtro;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,4 +21,9 @@ public abstract class Curso {
         x = this.keywords;
         return x;
     }
+    public abstract int getPrecio();
+    public abstract int getHoras();
+    public abstract boolean aprobado(Alumno a);
+    public abstract List<Curso> buscar(Filtro f);
+
 }
