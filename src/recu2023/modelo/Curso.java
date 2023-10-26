@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Curso {
-    protected String nombre;
+    protected String nombre; //hacerle un new aca nomas??
     protected List<String> keywords;
     public void setNombre(String nombre){
         this.nombre = nombre;
@@ -17,11 +17,12 @@ public abstract class Curso {
         this.keywords.add(keyword);
     }
     public List<String> getKeywords(){
-        List<String> x = new ArrayList<>();
-        x = this.keywords;
+        List<String> x = new ArrayList<>(this.keywords);
         return x;
     }
+    public abstract int getCantSubcursos();
     public abstract int getPrecio();
+    public abstract int getPrecioCustom(Alumno a);
     public abstract int getHoras();
     public abstract boolean aprobado(Alumno a);
     public abstract List<Curso> buscar(Filtro f);
