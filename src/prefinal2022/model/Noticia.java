@@ -18,8 +18,9 @@ public class Noticia extends Articulo {
         //agregar chequeo de que no este repetida antes
         this.keywords.add(keyword);
     }
-    public void addComentario(Comentario comentario){
+    public boolean addComentario(Comentario comentario){
         this.comentarios.add(comentario);
+        return true;
     }
     public boolean comentadaPor(String autor){
         for(Comentario c: comentarios){
@@ -42,6 +43,9 @@ public class Noticia extends Articulo {
     }
     @Override
     public Noticia copiaRestringida(Filter f){
-        return null; // completar
+        if(f.cumple(this)){
+            return this; //hacer copia
+        }
+        return null;
     }
 }
