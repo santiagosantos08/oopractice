@@ -28,6 +28,7 @@ public class Espec extends Curso {
                 //AA
             }
         }
+        return null;
     }
     @Override
     public int getCantSubcursos(){
