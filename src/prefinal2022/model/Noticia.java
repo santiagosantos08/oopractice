@@ -14,6 +14,12 @@ public class Noticia extends Articulo {
         this.autor = autor;
         this.comentarios = new ArrayList<>();
     }
+    public Noticia(Noticia n){
+        super(n.getTitulo(),n.getTema());
+        this.texto = n.getTexto();
+        this.autor = n.getAutor();
+        this.comentarios = n.getComentarios();
+    }
     public void addKeyword(String keyword){
         //agregar chequeo de que no este repetida antes
         this.keywords.add(keyword);
@@ -30,6 +36,15 @@ public class Noticia extends Articulo {
         }
         return false;
     }
+    public String getTexto(){
+        return this.texto;
+    }
+    public String getAutor(){
+        return this.autor;
+    }
+    public List<Comentario> getComentarios(){
+        return new ArrayList<Comentario>(this.comentarios);
+    }
     @Override
     public String getTema(){
         return this.tema;
@@ -44,7 +59,7 @@ public class Noticia extends Articulo {
     @Override
     public Noticia copiaRestringida(Filter f){
         if(f.cumple(this)){
-            return this; //hacer copia
+            return new Noticia(this);
         }
         return null;
     }
