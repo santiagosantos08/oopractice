@@ -15,6 +15,7 @@ public class Saga extends Element {
         this.elements = new ArrayList<>();
     }
     public boolean addElement(Element e){
+        //agregar los actores sin repeticion..
         if(this.hierarchy() >= e.hierarchy()){
             this.elements.add(e);
             return true;
@@ -23,11 +24,20 @@ public class Saga extends Element {
     }
     @Override
     public int getOscars(){
-        return 0;
+        int sum = 0;
+        for(Element e: elements){
+            sum += e.getOscars();
+        }
+        return sum;
     }
     @Override
     public int getScore(){
-        return 0;
+        int sum = 0;
+        for(Element e: elements){
+            sum += e.getScore();
+        }
+        //hacer dif no sirve si size es 0!!
+        return sum / this.elements.size();
     }
     @Override
     public int hierarchy(){
@@ -35,27 +45,29 @@ public class Saga extends Element {
     }
     @Override
     public List<Movie> searchBy(Filter f){
-        return null;
-    }
-    @Override
-    public Element createRestrictedCopy(Filter f){
-        Saga res = null;
-        //este primer if es para cuando dice si se deben mantener
-        //los contenedores vacios o no
-        //de esta forma solo se mantienen los que cumplen ya de por si como cont
-        //si no lo chequeas quedan todos los contenedores y solo importan los ind
-        //si chequeas que satisfaga y no este vacio solo dejas los 'clave'
-
-        //posiblemente sea if true pensarlo bien
-        if(f.satisfies(this)){
-            res = new Saga(this.getName());
-            for(Element e: elements){
-                Element temp = e.createRestrictedCopy(f);
-                if(temp != null){
-                    res.addElement(temp);
-                }
+        List<Movie> res = new ArrayList<>();
+        for(Element e: elements){
+            List<Movie> temp = e.searchBy(f);
+            if(!temp.isEmpty()){
+                res.addAll(temp);
             }
         }
         return res;
+    }
+    @Override
+    public Saga createRestrictedCopy(Filter f){
+        boolean buscando = true;
+        Saga res = new Saga(this.getName());
+        for(Element e: elements){
+            Element temp = e.createRestrictedCopy(f);
+            if(temp != null){
+                buscando = false;
+                res.addElement(temp);
+            }
+        }
+        if(!buscando){
+            return res;
+        }
+        return null;
     }
 }
