@@ -13,11 +13,16 @@ public class PresupuestoComplejo extends Presupuesto {
     }
     public PresupuestoComplejo(Presupuesto p, Filtro f){
         super(p.getNombre());
-        //creo que en realidad habria que pedir el getTareas y hacerle un .buscar 1x1
-        List<Tarea> temp = p.buscar(f);
+        List<Tarea> temp = p.getTareas();
+
         this.descuento = 10;
+
         for(Tarea t: temp){
-            this.addTarea(t);
+            if(f.cumple(t)){
+                this.addTarea(t);
+            }else{
+
+            }
         }
     }
     @Override

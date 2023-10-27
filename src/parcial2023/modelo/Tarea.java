@@ -13,6 +13,9 @@ public abstract class Tarea {
         this.nombre = nombre;
         this.materiales = new ArrayList<>();
     }
+    public Tarea(Tarea t, Filtro f){
+
+    }
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
