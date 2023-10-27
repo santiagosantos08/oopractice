@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Articulo {
-    private String titulo, tema;
+    protected String titulo, tema;
     protected List<String> keywords;
     public Articulo(String titulo, String tema){
         this.keywords = new ArrayList<>();

@@ -1,5 +1,7 @@
 package prefinal2022.model;
 
+import prefinal2022.filters.Filter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +21,27 @@ public class Noticia extends Articulo {
     public void addComentario(Comentario comentario){
         this.comentarios.add(comentario);
     }
-
+    public boolean comentadaPor(String autor){
+        for(Comentario c: comentarios){
+            if(c.getAutor().equals(autor)){
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    public String getTema(){
+        return this.tema;
+    }
+    @Override
+    public int cantNoticias(Filter f){
+        if(f.cumple(this)){
+            return 1;
+        }
+        return 0;
+    }
+    @Override
+    public Noticia copiaRestringida(Filter f){
+        return null; // completar
+    }
 }
