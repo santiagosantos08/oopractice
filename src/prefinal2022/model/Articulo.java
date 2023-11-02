@@ -8,6 +8,7 @@ import java.util.List;
 public abstract class Articulo {
     protected String titulo, tema;
     protected List<String> keywords;
+    public Articulo(){}
     public Articulo(String titulo, String tema){
         this.keywords = new ArrayList<>();
         this.titulo = titulo;

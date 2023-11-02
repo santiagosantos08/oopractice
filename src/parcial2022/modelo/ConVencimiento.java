@@ -6,13 +6,9 @@ import parcial2022.utils.PrecioSimple;
 
 public class ConVencimiento extends ElementoSimple {
     private int vencimiento,descuento,descAlquiler;
-    public ConVencimiento(String nombre, String descripcion, int meses, int vencimiento, int id, int valorBase, Precio precioAlquiler, int descVencido){
-        this.valor = valorBase;
-        this.precioAlquiler = precioAlquiler;
-        this.nombre  = nombre;
-        this.descripcion = descripcion;
-        this.meses = meses;
-        this.id = id;
+    public ConVencimiento(String nombre, String descripcion, int meses, int vencimiento, int id, int valorBase,
+                          Precio precioAlquiler, int descVencido){
+        super(nombre,descripcion,meses,id,valorBase,precioAlquiler);
         this.vencimiento = vencimiento;
         this.descuento = descVencido;
         this.descAlquiler = 50; //%

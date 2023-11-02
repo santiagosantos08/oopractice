@@ -1,7 +1,9 @@
 import parcial2023.modelo.*;
 import parcial2023.filtros.*;
 public class Main {
+
     public static void main(String[] args) {
+        /*
         Tarea tb1 = new TareaBasica("TB1");
         Tarea tb2 = new TareaBasica("TB2");
         Presupuesto pc1 = new PresupuestoComplejo("PC1");
@@ -18,6 +20,7 @@ public class Main {
         System.out.println(pc2);
         System.out.println(pc3);
         System.out.println(pc3.eIgual(pc1));
+         */
 
 
     }
