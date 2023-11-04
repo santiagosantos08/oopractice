@@ -1,5 +1,9 @@
 import parcial2023.modelo.*;
 import parcial2023.filtros.*;
+import parcial2023CiudadesEtc.*;
+
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -21,7 +25,13 @@ public class Main {
         System.out.println(pc3);
         System.out.println(pc3.eIgual(pc1));
          */
-
+        Region xd = new Compuesto(new ArrayList<String>(),new ArrayList<Region>(),null,false);
+        Cantero Cstd = new Cantero(6,(Compuesto)xd);
+        CanteroAmbiental CA = new WrapperEjercicio2(Cstd);
+        Cstd.setMetros(50);
+        System.out.println(CA);
+        System.out.println(Cstd);
+        CalculadorDeBeneficiosAmbientales.pruebaTipoCA(CA);
 
     }
 }
