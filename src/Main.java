@@ -31,7 +31,7 @@ public class Main {
         Cstd.setMetros(50);
         System.out.println(CA);
         System.out.println(Cstd);
-        CalculadorDeBeneficiosAmbientales.pruebaTipoCA(CA);
+        CalculadorDeBeneficiosAmbientales.pruebaTipoCA((CanteroAmbiental)Cstd);
 
     }
 }

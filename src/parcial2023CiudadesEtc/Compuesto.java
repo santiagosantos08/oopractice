@@ -56,7 +56,7 @@ public class Compuesto extends Region {
         return res;
     }
     public List<String> getEspeciesPermitidas(){
-        //esto aca esta re bostero no me acuerdo bien, la logica del parcial era mas largo
+        //esto aca no me acuerdo bien, la logica del parcial era mas largo
         //puede ser que le haya errado como loco lo tire de memoria..
         List<String> res = new ArrayList<>();
         if(!permitidas.isEmpty()){ // manzana  o region con una/s permitida/s
