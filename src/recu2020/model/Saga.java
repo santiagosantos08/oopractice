@@ -55,7 +55,7 @@ public class Saga extends Element {
         return res;
     }
     @Override
-    public Saga createRestrictedCopy(Filter f){
+    public Element createRestrictedCopy(Filter f){
         boolean buscando = true;
         Saga res = new Saga(this.getName());
         for(Element e: elements){

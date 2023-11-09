@@ -56,7 +56,7 @@ public class Group extends Element {
         return res;
     }
     @Override
-    public Group createRestrictedCopy(Filter f){
+    public Element createRestrictedCopy(Filter f){
         boolean buscando = true;
         Group res = new Group(this.getName());
         for(Element e: elements){

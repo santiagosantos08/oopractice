@@ -41,7 +41,7 @@ public class Movie extends Element {
     }
     public Element createRestrictedCopy(Filter f){
         if(f.satisfies(this)){
-            return this;
+            return new Movie(getName(),getScore(),getReleaseYear(),getOscars());
         }
         return null;
     }
